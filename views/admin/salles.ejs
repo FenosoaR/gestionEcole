@@ -1,0 +1,24 @@
+<%- include('nav') %>
+<div class="content">
+  <div class="container">
+    <div class="row tableau">
+      <div class="col-lg-8">
+        <h3>Liste Salle</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Numero</th>
+            </tr>
+          </thead>
+          <tbody>
+           <% for(item of salles){ %>
+            <tr>
+                <td>Salle <%= item.numero %></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>    
+    </div>
+  </div>
+</div>

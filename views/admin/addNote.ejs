@@ -1,0 +1,39 @@
+<%- include('nav') %>
+<div class="content"> 
+    <div class="container">
+        <div class="row">
+            <h4>Ajouter note de <%= etudiant.nom %> <%= etudiant.prenom %></h4>
+            <div class="col-lg-10">
+                <% if(error){ %>
+                    <% for(item of error){ %>
+                        <%= error %>
+                    <% } %>
+                <% } %>
+                <form action="/admin/addNote/<%= FiliereId %>/<%= OptionId %>/<%= SemestreId %>/<%= id %>" method="post">
+                            <input type="hidden" name="FiliereId" value="<%= FiliereId %>">
+                            <input type="hidden" name="OptionId" value="<%= OptionId %>">
+                            <input type="hidden" name="SemestreId" value="<%= SemestreId %>">
+                            <input type="hidden" name="EtudiantId" value="<%= id %>" >
+                    <% for(matiere of matieres){ %>
+                        <% for(item of matiere){ %>     
+                            <input type="hidden" name="EcId" value="<%= item.id %>" >
+                            <input type="hidden" name="UeId" value="<%= item.Ue.id %>" >
+                            <input type="hidden" name="id" value="<%= id %>" >
+                            <div class="form-group">
+                                <label for="note-<%= item.id %>"><%= item.nom %>  : </label>
+                                <input type="number" name="notes" id="note-<%= item.id %>" placeholder="Entrer note" class="form-control">  
+                            </div>
+                        <% } %> 
+                    <% } %>
+                        <div class="form-group">
+                            <button class="btn form-control" type="submit" style=" background-color: #1b37559d;">Ajouter</button>
+                          </div>
+                    </form>
+            </div>
+            </div>
+        </div>
+    </div>
+   
+
+
+ 

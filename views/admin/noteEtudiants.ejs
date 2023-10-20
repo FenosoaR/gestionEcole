@@ -1,0 +1,44 @@
+<%- include('nav') %>
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+              <h3>Note en <%= option.intitule %> S<%= SemestreId %></h3>
+                <div class="tableau">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>nom</th>
+                          <th>Prenom</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% for(item of etudiant){ %>
+                          <tr>
+                            <td>ETU/<%= item.id %> </td>
+                            <td><%= item.nom %> </td>
+                            <td><%= item.prenom %></td>
+                            <td>
+                              <a href="/admin/addNote/<%=FiliereId %>/<%= OptionId %>/<%= SemestreId %>/<%= item.id %>">Ajouter note</a>
+                              
+                             
+                            </td>
+                            <td>
+                              <a href="/admin/releveNote/<%=FiliereId %>/<%= OptionId %>/<%= SemestreId %>/<%= item.id %>">Voir relevé</a>
+                            </td>
+                            <td>
+                              <a href="/admin/addNoteRepechage/<%=FiliereId %>/<%= OptionId %>/<%= SemestreId %>/<%= item.id %>">Ajouter note repechage</a>
+                             
+                            </td>
+                          </tr>
+                
+                        <% } %>  
+                      </tbody>
+                
+                    </table>
+                  </div>
+            </div>
+          </div>
+    </div>
+</div>

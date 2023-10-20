@@ -1,0 +1,66 @@
+<div class="nav-etu">
+  <span>MADA-UNIVERSITY</span>
+    <ul>
+      <li><a href="/changerMdp/<%= user.id %>" class="btn">Changer mot de passe</a></li>
+  
+      <li>
+        <% if(user){ %>
+        <a href="/logout" class="btn">Deconnexion</a>
+        <% } %>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 etu-menu">
+        <div class="form-group  icone">
+          <i class="fa fa-info"></i> <a href="/profs/home">Informations </a>
+        </div>
+        <div class="form-group icone">
+          <i class="fa fa-calendar"></i> <a href="/profs/edt/<%= prof.FiliereId %>/<%= prof.OptionId %>/<%= prof.SemestreId %>">Emploi du temps</a>
+        </div>
+        <div class="form-group icone">
+            <i class="fa fa-book"></i>  <a href="/profs/cahierTexte">Cahier de texte</a>
+        </div>
+      </div>
+      <div class="col-lg-10">
+        <div class="info">
+            <div class="form-group">
+              <span class="gras">Professeur en : </span><%= prof.Filiere.nom %> / <%= prof.Option.intitule %>
+            </div>
+            <hr>
+        
+          <div class="form-group">
+            <span class="gras">Nom : </span><%= prof.nom  %>
+          </div>
+      
+          <div class="form-group">
+            <span class="gras">Prenom : </span><%= prof.prenom  %>
+          </div>
+      
+          <div class="form-group">
+            <span class="gras">Numero matricule : </span> PROF-<%= prof.id %>
+          </div>
+      
+          <div class="form-group">
+            <span class="gras">Contact:</span> <%= prof.contact %> 
+  
+          </div>
+      
+          <div class="form-group">
+            <span class="gras">Email: </span> <%= prof.email %>
+  
+          </div>
+      
+          <div class="form-group">
+            <span class="gras"> Date d'entrée dans l'université: </span> <%= getDate(prof.createdAt) %>
+  
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+

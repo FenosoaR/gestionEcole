@@ -1,0 +1,39 @@
+<%- include ('nav') %> 
+<div class="content">
+    <div class="container">
+      <h3>Etudiants inscrits en Semestre <%=  SemestreId   %></h3>
+      <a href="/admin/selectDelegue/<%= FiliereId %>/<%= OptionId %>/ <%= SemestreId %>">Selectionner Délégue</a>
+      <a href="/admin/addEtudiants/<%= FiliereId %>/<%= OptionId %>/ <%= SemestreId %> " class="ajout"><i class="fa fa-plus"></i> Ajouter un etudiant</a>
+      <div class="row tableau">
+        <div class="col-lg-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Matricule</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Date d'inscription</th>
+                <th>Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(item of etudiant){ %>
+                <tr>
+                  <td>ETU-<%= item.id %> </td>
+                  <td><%= item.nom %> </td>
+                  <td><%= item.prenom %></td>
+                  <td><%= getDate(item.createdAt)%></td>
+                  <td>
+                    <a href="/admin/deleteEtudiants/<%= FiliereId %>/<%= OptionId %>/<%= SemestreId%>/<%= item.id %>" class="btn" style=" background-color: #1b37559d; "><i class="fa fa-trash"></a></i>
+                    <a href="/admin/updateEtudiants/<%= FiliereId %>/<%= OptionId %>/<%= SemestreId%>/<%= item.id %>" class="btn" style=" background-color: #1b37559d; "><i class="fa fa-edit"></i></a>
+                    <a href="/admin/voirEtudiants/<%= FiliereId %>/<%= OptionId %>/<%= SemestreId%>/<%= item.id %>" class="btn" style=" background-color: #1b37559d; "><i class="fa fa-eye"></i></a>
+                  </td>
+                </tr>
+      
+              <% } %>  
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>

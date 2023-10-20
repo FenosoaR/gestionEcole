@@ -1,0 +1,103 @@
+<div class="nav-etu">
+  <span>MADA-UNIVERSITY</span>
+    <ul>
+      <li><a href="/changerMdp/<%= user.id %>" class="btn">Changer mot de passe</a></li>
+  
+      <li>
+        <% if(user){ %>
+        <a href="/logout" class="btn">Deconnexion</a>
+        <% } %>
+      </li>
+    </ul>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 etu-menu">
+        <div class="form-group  icone">
+          <i class="fa fa-info"></i> <a href="/etudiants/home">Informations </a>
+        </div>
+        <div class="form-group icone">
+          <i class="fa fa-calendar"></i>  <a href="/etudiants/edt/<%= etudiant.FiliereId %>/<%= etudiant.OptionId %>/<%= etudiant.SemestreId %>">Emploi du temps</a>
+        </div>
+        <div class="form-group icone">
+            <% if(etudiant.delegue == true){ %>
+            <i class="fa fa-book"></i>  <a href="/etudiants/cahierTexte">Cahier de texte</a>
+            <% } %> 
+        </div>
+        <div class="form-group icone">
+           <i class="fa fa-sticky-note"></i> Releve de Note : 
+            <ul>
+              <% for(item of semestres){ %>
+              <li><a href="/etudiants/releveNote/<%= etudiant.FiliereId %>/<%= etudiant.OptionId %>/<%= item.id %>/<%= etudiant.id %>">S<%= item.nom %></a> </li>
+              <% } %>
+            </ul>
+          
+        </div>
+  
+      </div>
+      <div class="col-lg-10" style="margin-top: 10px;">
+        <h3>Cahier de texte</h3>
+        <div class="row">
+            <div class="col-lg-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>Date</td>
+                            <td>Debut Cours</td>
+                            <td>Fin Cours</td>
+                            <td>Prof</td> 
+                            <td>Matiere</td> 
+                            <td>Reste VH</td>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                        <% for(item of cdt){ %>
+                            <tr>
+                                <td><%= item.createdAt.getDay()+'/'+item.createdAt.getMonth()+'/'+item.createdAt.getFullYear() %></td>
+                                <td><%= item.heureDebut %></td>
+                                <td><%= item.heureFin %></td>
+                                <td><%= item.prof %></td>
+                                <td><%= item.ec %></td>
+                                <td><%= item.resteVh %></td>    
+                            </tr>     
+                        <% } %>
+                    
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-2 ajoutCdt">
+                <form action="/etudiants/cahierTexte" method="post">
+                    <input type="hidden" name="filiere" value="<%= etudiant.Filiere.id %>">
+                    <input type="hidden" name="option" value="<%= etudiant.Option.id %>">
+                    <input type="hidden" name="semestre" value="<%= etudiant.Semestre.id %>">
+                    <div class="form-group">
+                        <label for="">Debut de cours : </label>
+                        <input type="number" name="heureDebut" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Fin de cours : </label>
+                        <input type="number" name="heureFin" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Matiere et Prof : </label>
+                        <% for (item of profs) { %>
+                            <div class="form-check">
+                                <input type="checkbox" name="profEc" class="form-check-input" id="profEc-<%= item.Profec %> " value="<%= item.Profec %>">
+                                <label for="profEc-<%=  item.Profec  %>"><%= item.nom %>/<%= item.ec %></label>
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn form-control">Ajouter</button>
+                    </div>
+                </form> 
+            </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+

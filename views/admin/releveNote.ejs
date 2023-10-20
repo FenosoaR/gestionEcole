@@ -1,0 +1,50 @@
+<%- include('nav') %>
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <h4>Releve de note en S<%= SemestreId %></h4>
+            <div class="col-lg-10">
+                <span> Nom :  <%= etudiant.nom %></span> <br>
+                <span> Prenom :  <%= etudiant.prenom %></span> <br>
+                <span>Les Ec a reprendre sont en rouges</span>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Unite</th>
+                            <th>Ec</th>
+                            <th>Note</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(ue of ues) { %>
+                            <tr>
+                                <td rowspan="<%= ue.nomEc.length + 1 %>"><%= ue.nomUe %></td>
+                            </tr>
+                            <% for(ec of ue.nomEc){ %>
+                                <tr>
+                                    <td><%= ec.Ec.nom %></td>
+                                    <% if (ec.note < 10 && ue.moyenneParUe < 10){ %>
+                                        <td class="rep"><%= ec.note %></td>
+                                    <% }else{ %>
+                                        <td><%= ec.note %></td>
+                                    <% } %>
+                                    
+                                </tr>
+                            <% } %>
+                            <tr>
+                                <td> Somme : <%= ue.sommeParUe %> </td>
+                                <td>Moyenne : <%= ue.moyenneParUe %></td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                   </table> 
+                   <span> Somme General : <%= SommeGeneral %> </span> <br>
+                   <span> Moyenne General : <%= MoyenneGeneral %></span>
+            </div>
+           
+        </div>
+    </div>
+  
+ 
+</div>

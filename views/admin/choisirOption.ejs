@@ -1,0 +1,12 @@
+<div class="container filiere">
+    <h1>Options</h1>
+<div class="row">
+     <% for(item of options) { %>
+         <div class="col-lg-4">
+            <div class="filieres">
+                <a href="/admin/allEtudiants/<%= FiliereId %>/<%= item.id %>" ><%= item.intitule %></a>  
+            </div>    
+        </div>
+    <% } %>
+</div>
+</div>

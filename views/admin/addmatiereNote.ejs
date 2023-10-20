@@ -1,0 +1,33 @@
+<%- include('nav') %>
+<div class="content">
+    <div class="row">
+        <div class="col-lg-4 offset-lg-4">
+            <% if(error) { %>
+                <% for(item of error){ %>
+                    <div class="alert alert-danger">
+                        <%= item %>
+                    </div>
+                <% } %>
+             <% } %>        
+               <form action="" method="post">
+                    <input type="hidden" value="<%= id %>" name="EtudiantId">
+                    <input type="hidden" value="<%= UeId %>" name="ues">
+                    <input type="hidden" value="<%= FiliereId %>" name="filieres">
+                   <input type="hidden" value="<%= SemestreId %>" name="semestres">
+           <% for(item of matiere){ %>
+                  <input type="hidden" name="ecs" value="<%= item.id %>" >
+                    <div class="form-group">
+                        <label for="note-<%= item.id %>"><%= item.nom %>  : </label>
+                        <input type="number" name="notes" id="note-<%= item.id %>" placeholder="">  
+                    </div>
+            <% } %>
+                    <div class="form-group">
+                        <button class="btn btn-primary form-control" type="submit">Ajouter</button>
+                      </div>
+                </form>
+            
+        </div>
+    </div>
+   
+</div>
+ 

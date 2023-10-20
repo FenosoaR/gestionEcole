@@ -1,0 +1,27 @@
+<%- include('nav') %>
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10">
+                    <h4>Selectionner Delegue</h4>
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <input type="hidden" name="filiere" value="<%= FiliereId %>">
+                            <input type="hidden" name="option" value="<%= OptionId %>">
+                            <input type="hidden" name="semestre" value="<%= SemestreId %>">
+                            <% for (item of listeEtudiant) { %>
+                                <div class="form-check">
+                                    <input type="checkbox" name="etudiant" class="form-check-input" id="etudiant-<%= item.id %> " value="<%= item.id %>">
+                                    <label for="etudiant-<%= item.id %>"><%= item.nom %> <%= item.prenom %></label>
+                                </div>
+                            <% } %>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn" style="background-color: #1b37559d;">Selectionner</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+        
+    </div>
+</div>

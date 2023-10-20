@@ -1,0 +1,29 @@
+<%- include('nav') %>
+<div class="content">
+    <div class="container">
+        <h3>Note repechage de <%= etudiant.nom %> <%= etudiant.prenom %></h3>
+        <div class="col-lg-8">
+                            
+                <form action="/admin/postNoteRepechage/<%= FiliereId %>/<%= OptionId %>/<%= SemestreId %>/<%= id %>" method="post">
+                    <input type="hidden" name="FiliereId" value="<%= FiliereId %>">
+                    <input type="hidden" name="OptionId" value="<%= OptionId %>">
+                    <input type="hidden" name="SemestreId" value="<%= SemestreId %>">
+                    <input type="hidden" name="EtudiantId" value="<%= id %>" >
+                    <% for(item of notes){ %>
+                        <% if(item.note < 10 ){ %>
+                                <input type="hidden" name="EcId" value="<%= item.Ec.id %>" >
+                                <input type="hidden" name="UeId" value="<%= item.Ue.id %>" >
+                                <input type="hidden" name="id" value="<%= id %>" >
+                            <div class="form-group">
+                                <label for="note-<%= item.id %>"><%= item.Ec.nom %>  : </label>
+                                <input type="number" name="notes" id="note-<%= item.id %>" value="<%= item.note %>" placeholder="Entrer note" class="form-control">
+                            </div>     
+                        <% } %>
+                    <% } %>
+                    <div class="form-group">
+                        <button type="submit" class=" btn form-control" style="  background-color: #1b37559d;">Ajouter Note</button>
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>

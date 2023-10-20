@@ -1,0 +1,31 @@
+<%- include('nav') %>
+<div class="content">
+    <div class="container">
+        <h4>Emploi du temps en S<%= SemestreId %></h4>
+        <div class="edt">
+         <i class="fa fa-plus"></i> <a href="/admin/addEdt/<%= FiliereId %>/<%= OptionId %>/<%= SemestreId %>">Ajouter EDT</a>
+        </div>
+        
+        <span> Semaine du : <%= getDate(dateDebutSemaine) %> / <%= getDate(dateFinSemaine) %></span>
+        <hr>
+            <div class="row">
+                <% for(jour in edtParJours){ %>
+                    <div class="col">
+                        
+                        <span><%= jour %></span>
+                        
+                            <hr>
+                         
+                        <% for(edt of edtParJours[jour]){ %>
+                             <span>
+                                <%= edt.heure_debut %> - <%= edt.heure_fin %> <br>
+                                <%= edt.Prof.nom %> <%= edt.Ec.nom %> <br>
+                                Salle <%= edt.Salle.numero %>
+                                <hr>
+                            </span>          
+                        <% } %> 
+                    </div>   
+                <% } %>
+            </div>              
+    </div>     
+</div>

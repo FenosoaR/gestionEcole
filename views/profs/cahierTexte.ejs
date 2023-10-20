@@ -1,0 +1,60 @@
+<div class="nav-etu">
+  <span>MADA-UNIVERSITY</span>
+    <ul>
+      <li><a href="/changerMdp/<%= user.id %>" class="btn">Changer mot de passe</a></li>
+  
+      <li>
+        <% if(user){ %>
+        <a href="/logout" class="btn">Deconnexion</a>
+        <% } %>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 etu-menu">
+        <div class="form-group  icone">
+          <i class="fa fa-info"></i> <a href="/profs/home">Informations </a>
+        </div>
+        <div class="form-group icone">
+          <i class="fa fa-calendar"></i> <a href="/profs/edt/<%= prof.FiliereId %>/<%= prof.OptionId %>/<%= prof.SemestreId %>">Emploi du temps</a>
+        </div>
+        <div class="form-group icone">
+            <i class="fa fa-book"></i>  <a href="/profs/cahierTexte">Cahier de texte</a>
+        </div>
+      </div>
+      <div class="col-lg-10" style="margin-top: 10px;">
+        <h3>Cahier texte avec salaire</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Date</td>
+                    <td>Debut Cours</td>
+                    <td>Fin Cours</td>
+                    <td>Matiere</td> 
+                    <td>Reste VH</td>
+                    <td>Paiement par heure</td>
+                </tr>
+            </thead>
+            <tbody>
+               
+                <% for(item of cdt){ %>
+                    <tr>
+                        <td><%= item.createdAt.getDay()+'/'+item.createdAt.getMonth()+'/'+item.createdAt.getFullYear() %></td>
+                        <td><%= item.heureDebut %></td>
+                        <td><%= item.heureFin %></td>
+                        <td><%= item.ec %></td>
+                        <td><%= item.vh %></td> 
+                        <td><%= item.salaire %> Ar</td>
+                        
+                    </tr>     
+                <% } %>
+            
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+

@@ -1,0 +1,43 @@
+<%- include('nav') %>
+<div class="content">
+  <div class="container">
+    <div class="row tableau">
+      <div class="col-lg-8">
+        <h3> Unités d'enseignement  en S<%=  SemestreId   %></h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Intitule</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (item of ues){ %>
+              <tr>
+                  <td><a href="/admin/allEc/<%= FiliereId %>/<%= OptionId %>/<%= SemestreId %>/<%= item.id %>"><%= item.nom %></a></td>
+                  <td>
+                      <a href="/admin/deleteUe/<%= FiliereId %>/<%= OptionId %>/<%= SemestreId %>/<%= item.id %>">Supprimer</a>
+                  </td>
+              </tr>
+              <% } %>   
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-3">
+       <h4>Ajout UE</h4>
+        <form action="/admin/addUe/<%= FiliereId %>/<%= OptionId %>/<%= SemestreId %>" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="filieres" value="<%= FiliereId %> ">
+          <input type="hidden" name="semestres" value="<%= SemestreId %> ">
+          <input type="hidden" name="options" value="<%= OptionId %> ">
+        <div class="form-group">
+          <label for="">Nom : </label>
+          <input type="text" name="nom" class="form-control">
+        </div>
+        <div class="form-group">
+          <button class="btn form-control" type="submit" style="  background-color: #1b37559d;">Ajouter</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<%- include('nav') %> 
+<div class="content">
+    <div class="row">
+        <div class="col-lg-10">
+            <div class="card">
+                <div class="row">
+                    <div class="col">
+                           <h3>Information sur l'étudiant</h3>
+                           Nom : <span class="droite"> <%= etudiant.nom %>  </span>
+                           <hr>
+                            Prenom :<span class='droite'><%= etudiant.prenom %>  </span>
+                           <hr>
+                           Date de naissance : <span class='droite' ><%= getDate(etudiant.dateNaissance) %> </span>
+                           <hr>
+                           Adresse : <span class='droite' ><%= etudiant.adresse %>  </span>
+                           <hr>
+                           Contact : <span class='droite'><%= etudiant.contact %>  </span>
+                           <hr>
+                           Email :  <span class='droite'>  <%= etudiant.email %>  </span>
+                           <hr>
+                           Releve de note : 
+                           <% for(item of semestres){ %>
+                                 <a href="/admin/releveNote/<%= FiliereId%>/<%= OptionId %>/<%= item.id %>/<%= etudiant.id %>">S<%= item.nom %></a> 
+                            <% } %>                          
+                    </div>
+                    <div class="col">
+                        <div class="image">
+                            <img src="/upload/<%= etudiant.pdp %>" alt="">
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+</div>

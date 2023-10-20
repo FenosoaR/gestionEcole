@@ -1,0 +1,56 @@
+<%- include('nav') %>
+<div class="content">
+  <div class="container">
+    <div class="row tableau">
+      <div class="col-lg-8">
+        <h3>Ec en <%= ue.nom %> S<%=  SemestreId   %></h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Intitule</th>
+              <th>VH</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(item of ecs){ %>
+              <tr>
+                <td><%= item.nom %> </td>
+                <% if(item.VH == 0){ %>
+                  <td>Cours terminé</td>
+                <% }else { %>
+                  <td><%= item.VH %> </td>
+                <% } %>
+                <td>
+                  <a href="/admin/deleteEc/<%= FiliereId %>/<%= OptionId %>/<%= SemestreId %>/<%= UeId %>/<%= item.id %>">Supprimer</a>
+                </td>
+    
+              </tr>
+    
+              <% } %>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-3">
+        <h4>Ajouter EC</h4>
+              <form action="/admin/addEc/<%= FiliereId %>/<%= OptionId %>/<%= SemestreId %>/<%= UeId %>" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="filieres" value="<%= FiliereId %>">
+                <input type="hidden" name="semestres" value="<%= SemestreId %>">
+                <input type="hidden" name="options" value="<%= OptionId %>">
+                <input type="hidden" name="ue" value="<%= UeId %>">
+              <div class="form-group">
+                <label for="">Nom : </label>
+                <input type="text" name="nom" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="">Volume Horaire : </label>
+                <input type="number" name="vh" class="form-control">
+              </div>
+              <div class="form-group">
+                <button class="btn form-control" type="submit" style=" background-color: #1b37559d;">Ajouter</button>
+              </div>
+    </form>
+      </div>
+    </div>
+  </div>
+</div>

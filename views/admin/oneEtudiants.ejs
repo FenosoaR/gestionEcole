@@ -1,0 +1,22 @@
+<div class="content">
+    <div class="tableau">
+        <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(item of etudiant){ %>
+                  <tr>
+                    <td><%= item.id %> </td>
+                    <td><%= item.nom %> </td>
+                    <td><%= item.prenom %> </td>
+                  </tr>
+                <% } %>  
+            </tbody>
+        </table>
+      </div>
+</div>

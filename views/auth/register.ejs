@@ -1,0 +1,43 @@
+<div class="container">
+        <div class="row" style="margin-top: 40px;">
+            <div class="col-lg-6 auth-welcome">
+                <h1>Bienvenu à l'université de Madagascar</h1>
+            </div>
+            <div class="col-lg-6">
+                <div class="auth">
+                    <h3>Inscription</h3>
+                    <% if(error) { %>
+                        <% for(item of error){ %>
+                            <div class="alert alert-danger">
+                                <%= item %>
+                            </div>
+                        <% } %>
+                     <% } %>
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <input type="text" name="nom" class="form-control" placeholder="Nom...">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="prenom" class="form-control" placeholder="Prenom...">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email"  class="form-control" placeholder="Email...">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" placeholder="Mot de passe...">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="confirmation" class="form-control" placeholder="Confirmation...">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn form-control">S'inscrire</button>
+                        </div>
+                    </form>
+                    <div class="texte">
+                        <span>Vous avez déja un compte</span>  <br>
+                        <a href="/">Se connecter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

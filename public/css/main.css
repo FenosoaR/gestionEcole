@@ -1,0 +1,264 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(245, 239, 239, 0.801);
+}
+.auth-welcome{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.auth-welcome h1{
+    font-size: 50px;
+}
+.auth button{
+    background-color: #1b37559d;
+}
+.filiere h1{
+    font-size: 40px;
+    text-align: center;
+    color: grey;
+}
+.filieres a {
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+.filieres{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(167, 161, 161);
+    margin-top: 10px;
+    margin-bottom: 40px;
+    height: 150px;
+    background-color: #1b37559d;
+    border-radius: 5px;
+    padding: 10px;
+}
+.semestres{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    width: 80%;
+    height: 100px;
+    background-color: #1b37559d;
+    border-radius: 10px;
+    padding: 10px;
+   
+   
+}
+.semestres a {
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+.navhead{
+    height: 60px;
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+    background-color: #1b37559d;
+    z-index: 44;
+    
+}
+.navhead span{
+    font-weight: bold;
+    font-size: 22px;
+    margin-left: 40px;
+    color: white;
+}
+.navhead form{
+    margin-left :20%;
+    margin-top: -35px;
+}
+.navhead form input{
+    width: 40%;
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 30px;
+}
+.navhead a{
+    float :right;
+    color: white;
+}
+.menu{
+    position: fixed;
+    width: 250px;
+    height: calc(100vh - 60px);
+    overflow-y: scroll;
+    color: white;
+    z-index: 1;
+    background-color: #1b37559d;
+}
+.menu li i{
+    margin-right: 10px;
+    font-size: 20px;
+}
+.menu li a{
+    color: white;
+    font-size: 17px;
+}
+.menu ul li{
+    list-style-type: none;
+    margin-top: 20px;
+}
+.content{
+    position: sticky;
+    width: calc(100% - 250px);
+    height: calc(100vh - 70px);
+    padding: 10px ;
+    margin-left: 250px;
+    background-color: white;
+    color: rgb(102, 101, 101);
+}
+.ajout{
+    float: right;
+    color: rgb(41, 39, 39);
+    margin-right: 40px;
+}
+.tableau{
+    margin-top: 15px;
+}
+.table td i{
+    color: white;
+}
+.table td a{
+    color: black;    
+}
+.table{
+    border: 1px solid lightgray;
+}
+
+.card{
+    margin-top: 30px;
+    margin-left: 20%;
+    padding: 20px;
+}
+
+.image{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+    width: 150px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.image img{
+    width: 100%;
+}
+.auth{
+    background-color: white;
+    padding: 30px;
+    border-radius: 1px;
+    box-shadow: 5px 6px 1px lightgray;
+}
+.auth h3{
+    text-align: center;
+}
+.auth .texte{
+    text-align: center;
+}
+.jours{
+    display: flex;
+    justify-content:space-evenly;
+}
+.jour{
+    padding: 10px;
+    width: 200px;
+    background-color: white;
+    border: 1px solid lightgrey ;
+}
+.gras{
+    font-weight: bolder;
+    
+}
+.gras a{
+    color: black;
+}
+.rep{
+    color: red;
+}
+.yellow{
+    background-color: yellow;
+}
+.ajout{
+    margin-left: 30px;
+    font-size: 17px;   
+}
+.bold{
+    font-weight: bold;
+}
+.nav-etu{
+    width:100%;
+    height: 70px;
+    padding: 10px;
+    background-color: #1b37559d;
+    color: white;
+
+}
+.nav-etu span{
+    font-size: 30px;
+    margin-left: 30px;
+}
+.nav-etu ul{
+    float: right;
+    list-style-type: none;
+    margin-right: 30px;
+    
+}
+.nav-etu ul li{
+    display: inline-block;
+}
+.nav-etu ul li a {
+    background-color: #1b37559d;
+    color: white;
+}
+.etu-menu{
+    border-top: 1px solid lightgray;
+    background-color: #1b37559d;
+    height: calc(100vh - 90px);
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+}
+.etu-menu .icone{
+    margin-left: 20px;
+}
+.etu-menu .icone i {
+    margin-right: 10px;
+}
+
+.etu-menu ul{
+   list-style-type: circle;
+}
+.etu-menu a {
+    color: white;
+}
+.info{
+    margin-top: 30px;
+    margin-left:30px;
+}
+.changerMdp{
+    margin-top: 15px;
+    margin-left: 40px;
+}
+.changerMdp button{
+    background-color: #1b37559d;
+}
+.ajoutCdt button{
+    background-color: #1b37559d; 
+}
+.edt{
+    float: right;
+    margin-right: 40px;
+
+}
+.edt a{
+    color: grey;
+}
+

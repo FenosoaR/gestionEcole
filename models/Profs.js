@@ -1,0 +1,29 @@
+module.exports = (sequelize , datatype) =>{
+    return sequelize.define('Profs' , {
+        id:{
+            primaryKey:true,
+            autoIncrement:true,
+            type:datatype.INTEGER
+        },
+        nom:{
+            allowNull:false,
+            type:datatype.STRING
+        },
+        prenom:{
+            allowNull:false,
+            type:datatype.STRING
+        },
+        email:{
+            allowNull:false,
+            type:datatype.STRING
+        },
+        password:{
+            allowNull:false,
+            type:datatype.STRING
+        },
+        contact:{
+            allowNull:false,
+            type:datatype.STRING
+        },    
+    })
+}

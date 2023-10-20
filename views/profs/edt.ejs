@@ -1,0 +1,55 @@
+<div class="nav-etu">
+  <span>MADA-UNIVERSITY</span>
+    <ul>
+      <li><a href="/changerMdp/<%= user.id %>" class="btn">Changer mot de passe</a></li>
+  
+      <li>
+        <% if(user){ %>
+        <a href="/logout" class="btn">Deconnexion</a>
+        <% } %>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 etu-menu">
+        <div class="form-group  icone">
+          <i class="fa fa-info"></i> <a href="/profs/home">Informations </a>
+        </div>
+        <div class="form-group icone">
+          <i class="fa fa-calendar"></i> <a href="/profs/edt/<%= prof.FiliereId %>/<%= prof.OptionId %>/<%= prof.SemestreId %>">Emploi du temps</a>
+        </div>
+        <div class="form-group icone">
+            <i class="fa fa-book"></i>  <a href="/profs/cahierTexte">Cahier de texte</a>
+        </div>
+      </div>
+      <div class="col-lg-10" style="margin-top: 10px;">
+        <h3>Emploi du temps en S<%= SemestreId %></h3>
+        <span> Semaine du : <%= getDate(dateDebutSemaine) %> / <%= getDate(dateFinSemaine) %></span>
+        <hr>
+            <div class="row">
+                <% for(jour in edtParJours){ %>
+                    <div class="col">
+                        
+                        <span><%= jour %></span>
+                        
+                            <hr>
+                         
+                        <% for(edt of edtParJours[jour]){ %>
+                             <span>
+                                <%= edt.heure_debut %> - <%= edt.heure_fin %> <br>
+                                <%= edt.Prof.nom %> <%= edt.Ec.nom %> <br>
+                                Salle <%= edt.Salle.numero %>
+                                <hr>
+                            </span>          
+                        <% } %> 
+                    </div>   
+                <% } %>
+
+            </div>     
+      </div>
+    </div>
+  </div>
+

@@ -1,0 +1,23 @@
+<%- include('nav') %> 
+<div class="content">
+    <div class="row">
+        <div class="col-lg-10">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Nom</td>
+                        <td>Prenom</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(item of etudiant){ %>
+                        <tr>
+                            <td><%= item.nom %></td>
+                            <td><%= item.prenom %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

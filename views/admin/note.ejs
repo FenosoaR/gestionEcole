@@ -1,0 +1,15 @@
+<%- include('nav') %> 
+<div class="content">
+   <div class="container">
+       <div class="row">
+           <% for(item of semestres) { %>
+               <div class="col-lg-4">
+                    <div class="semestres">
+                      <a href="/admin/noteEtudiants/<%= FiliereId %>/<%= OptionId %>/<%= item.id %>">Semestre <%= item.id %></a>
+                   </div>    
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+ 
